@@ -30,8 +30,8 @@ class AbstractMelonOrder(object):
 
     def get_base_price(self):
         """Splurge pricing"""
-        base_price = random.randint(5, 9)
-        self.base_price = base_price
+        self.base_price = random.randint(5, 9)
+        
 
 
 
@@ -64,12 +64,11 @@ class InternationalMelonOrder(AbstractMelonOrder):
 
 class GovernmentMelonOrder(AbstractMelonOrder):
 
-    def __init__(self, passed_inspection = False):
-        self.passed_inspection = passed_inspection
-    # def __init__(self, species, qty, passed_inspection):
-    #     super(GovernmentMelonOrder, self).__init__(species, qty, 'USA', passed_inspection)
+    
+    def __init__(self, species, qty, passed_inspection):
+        super(GovernmentMelonOrder, self).__init__(species, qty, 'USA')
 
-    def mark_inspection(self, passed = None):
+    def mark_inspection(self, passed=None):
         if passed:
             print "I'm in the loop"
             self.passed_inspection = passed
